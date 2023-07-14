@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var sv = {
+			"name" : "Nguyễn Văn A",
+			"gender": true,
+			"marks" : 7.5,
+			"contact" :{ 
+				"email":"anv@gmail.com",
+				"phone":"0123456789"
+			},
+			"subject":["WEB205","COM108"]
+		}
+		//xuất 1 đối tường
+		console.log(sv)
+		
+		// truy xuất thuộc tính
+		sv.name =sv['name'].toUpperCase();
+		console.log(sv.name, sv.contact.email,sv.subject[0])
+		
+		//duyệt đối tượng theo key
+		for(var key in sv){ 
+			console.log(key, sv[key])
+		}
+		
+		//chuyển đôit đối tượng json qua chuõi
+		var text = JSON.stringify(sv)
+		console.log(text)
+		
+		//chuyển đối chuỗi sang đối tượng json
+		var obj = JSON.parse(text)
+		console.log(obj, obj.name)
+	</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+			"name" : "Nguyễn Văn A",
+			"gender": true,
+			"marks" : 7.5,
+			"contact" :{ 
+				"email":"anv@gmail.com",
+				"phone":"0123456789"
+			},
+			"subject":["WEB205","COM108"]
+		}
