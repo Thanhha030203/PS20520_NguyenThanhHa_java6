@@ -1,0 +1,19 @@
+<div xmlns:th="http://www.thymeleaf.org"  >
+  <div class="card mt-2">
+    <div class="card-header bg-black text-white">
+        <b class="glyphicon glyphicon-briefcase"></b> Danh mục
+    </div>
+  </div>
+  <div class="list-group" >
+    <!-- ở đây ta có thể hiểu rằng
+    Vì category là cố định nên khi viết vào controller liên quan đến layout,
+    Mỗi lần chạy layout đều phải tải lại và rất tốn thời gian cũng như data
+    vì vậy ta viết nó vào intercepter cố định cates và chạy nó trên mọi đường dẫn 
+    trừ các đường dẫn liên quan đến rest, admin, assets những đường dẫn này không có cateory nên không cần chạy 
+  Sau khi viết nó xong rồi nó sự động chạy sau mỗi lần sử dụng controller
+và khi đã viết nó vào interceptor ta có thể sử dụng addtribute của nó
+một cách bình thường như trong model -->
+   <a  th:each="c:${cates}" th:href="@{|/product/list?cid=${c.id}|}" class="list-group-item list-group-item-action menu_style">[[${c.name}]]</a> 
+  </div>
+</div>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:replace="~{/layout/index::dynamic(~{::main})}">
+    <body>
+       <main>
+            <div class="card card-primary" th:fragment="shopping_cart">
+               <div class="card-header">
+                  SHOPPING CART
+               </div>
+               <table class="table">
+                  <thead>
+                     <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                        <th></th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <tr ng-repeat="item in cart.items">
+                        <!-- Khi có định dạng của angular 
+                        như định dạng number thì ttruowcs {{}} 
+                        phải có $ nếu như khong định dạng thì không cần có -->
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>${{item.price|number:2}}</td>
+                        <td><input type="number" ng-change="cart.saveToLocalStorage()" style="width: 50px;" ng-model="item.qty" min="1"></td>
+                        <td>${{item.qty*item.price|number:2}}</td>
+                        <td>
+                           <!-- // Tại đây không cần phải
+                           sử dụng thymeleaf mà ta sử dụng nó qua angular
+                           nên không cần các thuộc tính ép buộc của rest/thymeleaf -->
+                           <button ng-click="cart.remove(item.id)" class="btn btn-sm btn-danger">Xoá</button>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+               <div class="card-footer">
+                  <button ng-click="cart.clear()" class="btn btn-danger">Xoá All</button>
+                  <!-- hiểu là khi thực hiện hàm hay biến của anglar ta không cần
+                  sử dụng các định dạng thymeleaf
+                  Nhưng khi sử dụng các đường dẫn chạy thì qua trang khác
+                  ta phải sử dụng thymeleaf -->
+                  <a th:href="@{|/order/checkout|}" class="btn btn-primary">Checkout</a>
+               </div>
+
+            </div>
+       </main>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="app" ng-controller="ctrl">
+        <label for="">
+            Upload Files: 
+            <input type="file" accept="image/*" multiple
+            onchange="angular.element(this).scope().upload(this.files)" name="files">
+        </label>
+
+        <label for="" ng-repeat="filename in filenames" title="Double click to delete">
+
+            <img src="" ng-src="{{url(filename)}}" ng-dblclick="delete(filename)" alt="">
+        </label>
+    </div>
+    <script src="fileimage.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+.poly-item img{
+	height: 150px;
+	max-width: 95%;
+}
+.poly-item .card-title{
+	font-size: 18px;
+	
+}
+.poly-item-detail img{
+	max-width: 80%;
+}
+.editImgCar img{
+	height: 600px;
+	width: 100%;
+	
+}
+
+
+#mySearch {
+	width: 100%;
+	font-size: 18px;
+	padding: 11px;
+	border: 1px solid #ddd;
+  }
+  
+  /* Style the navigation menu */
+  #myMenu {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+  }
+  
+  /* Style the navigation links */
+  #myMenu li a {
+	padding: 12px;
+	text-decoration: none;
+	color: black;
+	display: block;
+	border-bottom: 1px solid #ddd;
+  }
+  
+  #myMenu li a:hover {
+	background-color: #eee;
+  }
+.list_introduction_product ul li{
+	margin-bottom: 15px;
+}
+
+.menu_style{
+	background: none;
+	color: white
+}
+
+.menu_style:hover{
+	background: #eee;
+	color: black;
+}
+
+.list_similar{
+	height: 50px; margin-top: 30px;
+	font-size: 30px;
+	position: relative;
+	
+}
+.list_similar::after{
+	content: " ";
+	height: 3px;
+	width: 700px;
+	background: white;
+	position: absolute;
+	z-index: 100;
+	top: 25px;
+	right: 20px
+}
+
+.cart_bage{
+	position: relative;
+}
+
+
+.cart_bage .cart_bage_item{
+	position: absolute;
+	left: 22px;
+}
+
+.background_menu{
+	background-image: linear-gradient(to right, rgb(21, 5, 43), rgb(56, 56, 58)) !important;
+}
+
+.navbar-brand, .nav-link{
+	color: white !important;
+}
+
+.btn-list-product{
+	width: 100px;
+	height: 40px;
+	background: none;
+}

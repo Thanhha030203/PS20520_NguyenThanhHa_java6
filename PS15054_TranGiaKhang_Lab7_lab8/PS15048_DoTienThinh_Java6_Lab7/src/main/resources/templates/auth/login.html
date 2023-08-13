@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Đăng nhập</title>
+</head>
+<body>
+	<nav th:replace="~{/home/_menu :: nav}"></nav>
+	<hr>
+	<h3>Login Form</h3>
+	<hr>
+	<i th:text="${message}"></i>
+	<form action="/auth/login" method="post">
+		<input type="text" name="username" placeholder="Username"/> <br>
+		<input type="password" name="password" placeholder="Password"/> <br>
+		<input type="checkbox" name="remember" /> Remember me <br>
+		<button>Login</button>
+		<a href="/oauth2/authorization/google">Google</a>
+		<a href="/oauth2/authorization/facebook">Facebook</a>
+	</form>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/layout/index::dynamic(~{::main})}">
+
+<body>
+   <main th:object="${item}" class="poly-item-detail">
+      <div class="row">
+         <div class="col-sm-5 my-2  bg-white">
+            <div>
+               <img th:src="@{|/assets/images/*{image}|}" alt="" class="d-block m-auto my-3">
+            </div>
+         </div>
+         <div class="col-sm-7" style="margin-top: 100px;">
+            <div class="row list_introduction_product">
+               <div class="col-sm-5 ">
+                  <ul class="d-block">
+                     <li>Product Name : </li>
+                     <li>Product Price : </li>
+                     <li>Product CreateDate : </li>
+                     <li>Category Name : </li>
+                  </ul>
+               </div>
+               <div class="col-sm-7">
+                  <ul class="d-block" style="list-style: none; font-weight: 700;">
+                     <li th:text="*{name}"></li>
+                     <li th:text="*{price}"></li>
+                     <li th:text="*{createDate}"></li>
+                     <li th:text="*{category.name}"></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <!-- <div class="card card-primary ">
+                  <div class="card-body text-center">
+                     <img th:src="@{|/assets/images/*{image}|}" alt="">
+                  </div>
+
+               </div>
+               <div class="card card-primary">
+                  <div class="card-body">
+                     <ul>
+                        <li th:text="*{name}"></li>
+                        <li th:text="*{price}"></li>
+                        <li th:text="*{createDate}"></li>
+                        <li th:text="*{category.name}"></li>
+                     </ul>
+                  </div>
+                  <div class="card-footer text-right">
+                     <button class="btn btn-success">Thêm</button>
+                  </div>
+               </div> -->
+      </div>
+
+      <div class="list_similar">
+         <b style="color: white;" class="d">Similar Product</b>
+      </div>
+      <div class="row">
+         <div th:each="p :*{category.products}" class="col-sm-4 my-2">
+            <div class="card  card-primary poly-item text-center">
+               <a th:href="@{|/product/detail/${p.id}|}">
+                  <img th:src="@{|/assets/images/${p.image}|}" class="mt-2" alt=""></a>
+               <div class="card-body">
+                  <h4 class="card-title" th:utext="${p.name}"></h4>
+                  <p class="card-text">$[[${p.price}]]</p>
+                  <span>
+                     <a th:href="@{|/product/detail/${p.id}|}" class="btn btn-danger float-start ms-2 my-2">Chi tiết</a>
+                     <button th:attr="ng-click=@{|cart.add(${p.id})|}" class="btn btn-success float-end me-2 my-2">
+                        <i>Thêm</i>
+                     </button>
+                  </span>
+
+               </div>
+            </div>
+         </div>
+      </div>
+   </main>
+</body>
+
+</html>

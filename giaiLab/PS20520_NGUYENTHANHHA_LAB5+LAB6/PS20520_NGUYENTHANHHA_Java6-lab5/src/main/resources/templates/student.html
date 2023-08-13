@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+<body ng-app="app" ng-controller="ctrl">
+
+    <section class="">
+        <h3 class="text-center">REStfull API</h3>
+        <div >
+        <div>
+
+            <div>
+                <form>
+                    <div>
+                        <div>
+                            <div class="form-group">
+
+                                <input ng-model="form.fullname" type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="Fullname" >
+                                <label for="firstName">Fullname</label>
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <input ng-model="form.marks"  type="number" min="0" max="10" class="form-control" id="lastName" aria-describedby="lastName" placeholder="Marsk">
+                                <label for="lastName">Marks</label>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <div class="form-group">
+                                <input ng-model="form.email" type="email" class="form-control" id="email" aria-describedby="email" placeholder="example@xyz.com" >
+                                <label for="email">Email</label>
+
+                            </div>
+                        </div>
+                        <div>
+                            <div class="form-group">
+                                <select ng-model="form.country"  class="form-control" id="cars">
+                                    <option value="VN">Việt Nam</option>
+                                    <option value="US">United Stated</option>
+                                    <option value="TQ">Trung Quốc</option>
+                                </select>
+                                <label >Country</label>
+                                
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div >
+                                <div style="   border: 1px solid #ced4da; border-radius: 0.25rem;">
+                                    <label for="male" >Male</label>
+                                    <input ng-model="form.gender" ng-value="true" type="radio" style="width: 18px;height: 18px;">
+                                    <label for="female" >Femele</label>
+                                    <input ng-model="form.gender" ng-value="false" type="radio"  style="width: 18px;height: 18px;">
+                                </div>
+                                <label >Gender</label><br>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                File name: <label id="demo"  for="customFileInput">Select file</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <button type="submit" ng-click="create()" class=" btn btn-get"><span> Creare!</span></button>
+                        <button type="submit" ng-click="update()" class=" btn btn-get"><span> Update!</span></button>
+                        <button type="submit" ng-click="delete(form.email)" class=" btn btn-get"><span> Delete!</span></button>
+                        <button type="submit" ng-click="reset()" class=" btn btn-get"><span> Rest!</span></button>
+                        
+                       
+
+                         
+                        
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div style="margin-top: 50px;">
+
+            <table style="background: white;width: 80%;;" border=1>
+                <thead>
+                <tr>
+                   
+                    <th scope="col">Email</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Marks</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Edit</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="st in items">
+                    <td>{{st.email}}</td>
+                    <td>{{st.fullname}}</td>
+                    <td>{{st.marks}}</td>
+                    <td>{{st.gender?'Male':'Female'}}</td>
+                    <td>{{st.country}}</td>
+                    <td><button ng-click="edit(st.email)" type="submit" class=" btn btn-get"><span> Edit!</span></button></td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </section>
+
+
+</div>
+<script src="student.js"></script>
+</body>
+</html>

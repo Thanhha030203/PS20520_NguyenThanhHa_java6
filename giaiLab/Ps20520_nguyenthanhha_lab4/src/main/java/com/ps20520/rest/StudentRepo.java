@@ -27,14 +27,16 @@ public class StudentRepo {
 	}
 	
 	public String create(Student data) {
-		HttpEntity<Student> entity = new HttpEntity<>(data);
+		HttpEntity<Student> entity = new HttpEntity<Student>(data);// truyền vào 1 student mà mình muốn thêm vào
 		JsonNode resp = rest.postForObject(url, entity, JsonNode.class);
+		// Đưa ra url sẽ lưu, entity sẽ lưu và, và class JsonNode
 		return resp.get("name").asText();
 	}
 	
 	public Student update(String key,Student data) {
 		HttpEntity<Student> entity = new HttpEntity<>(data);
 		rest.put(getUrl(key),data);
+		//Đưa ra url có ten thông tin muốn đổi, đưa data vào
 		return data;
 	}
 	

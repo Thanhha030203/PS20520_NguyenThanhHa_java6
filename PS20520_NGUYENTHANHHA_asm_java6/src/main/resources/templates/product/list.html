@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ th:replace="~{/layout/index::dynamic(~{::main})}">
+    <body>
+       <main class="row">  
+         <div th:each="p:${items}" class="col-sm-4 my-2">
+            <!-- <div class="card  card-primary poly-item text-center">
+               <div class="card-header">
+                  <div class="panel-title" th:utext="${p.name}"></div>
+               </div>
+               <div class="card-body">
+                  <a th:href="@{|/product/detail/${p.id}|}">
+                  <img th:src="@{|/assets/images/${p.image}|}" alt=""></a>
+               </div>
+               <div class="card-footer text-right">
+                  <b class="pull-left">$[[${p.price}]]</b>
+                  <button th:attr="ng-click=@{|cart.add(${p.id})|}" class="btn btn-success">
+                     <i>Thêm</i>
+                  </button>
+               </div>
+            </div> -->
+            <div class="card  card-primary poly-item text-center" style="background: rgb(243, 243, 243)">
+               <a th:href="@{|/product/detail/${p.id}|}">
+                  <img th:src="@{|/assets/images/${p.image}|}" class="mt-2" alt=""></a>
+               <div class="card-body">
+                 <h4 class="card-title" th:utext="${p.name}"></h4>
+                 <p class="card-text">$[[${p.price}]]</p>
+                 <span>
+                  <a th:href="@{|/product/detail/${p.id}|}" class="btn float-start ms-2 my-2" style="background: none; color: red;">Chi tiết</a>
+                  <button th:attr="ng-click=@{|cart.add(${p.id})|}" class="btn  float-end me-2 my-2">
+                     <i>Thêm</i>
+                  </button>
+                 </span>
+                 
+               </div>
+             </div>
+            <!-- Ghi như vậy vì toàn bộ các thuộc tính
+            trong này đều sử dụng từ thymeleaf nên
+            ngay cả hoạt động clixk cx phải ghi như v
+            <button th:attr="ng-click=@{|cart.add(${p.id})|}" class="btn btn-success">
+               <i>Thêm</i>
+            </button> -->
+            <!-- Tại sao lại không sử dụng anglar ở trang này?
+            Trang này là trang được đưa vào layout khi vừa mới chạy
+            vì vậy nó sử dụng controller chứ không dùng rest
+            nên ta không sử dụng get của rest đc -->
+         </div>
+       </main>
+    </body>
+</html>

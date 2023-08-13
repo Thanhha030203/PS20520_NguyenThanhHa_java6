@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Demo spring security</title>
+</head>
+<body>
+	<h3>Demo spring security</h3>
+	<nav th:replace="~{/home/_menu :: nav}"></nav>
+	<hr>
+	<h2 th:text="${message}"></h2>
+	<hr>
+	<main th:replace="~{/home/_info :: main}"></main>
+</body>
+</html>
