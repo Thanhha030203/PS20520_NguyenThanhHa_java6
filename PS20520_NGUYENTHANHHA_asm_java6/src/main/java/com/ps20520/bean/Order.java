@@ -1,6 +1,5 @@
 package com.ps20520.bean;
 
-import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
@@ -21,11 +20,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
-@SuppressWarnings("serial")
 @Data
 @Entity
 @Table(name = "Orders")
-public class Order implements Serializable{
+public class Order{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	

@@ -1,6 +1,5 @@
 package com.ps20520.bean;
 
-import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
@@ -15,11 +14,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 
-@SuppressWarnings("serial")
 @Data
 @Entity
 @Table(name = "Accounts")
-public class Account implements Serializable{
+public class Account{
 	@Id
 	String username;
 	String password;

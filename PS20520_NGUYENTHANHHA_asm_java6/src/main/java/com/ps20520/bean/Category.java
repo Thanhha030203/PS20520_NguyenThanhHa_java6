@@ -1,6 +1,5 @@
 package com.ps20520.bean;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -13,11 +12,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.Data;
 
-@SuppressWarnings("serial")
 @Data
 @Entity
 @Table(name = "Categories")
-public class Category implements Serializable{
+public class Category{
 	@Id
 	public String id;
 	public String name;
